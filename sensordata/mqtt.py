@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt
 from django.conf import settings
-
+from .models import Measure
 
 def on_connect(mqtt_client, userdata, flags, rc):
     if rc == 0:
@@ -11,7 +11,8 @@ def on_connect(mqtt_client, userdata, flags, rc):
 
 
 def on_message(mqtt_client, userdata, msg):
-    print(f'Received data from sensor on topic: {msg.topic} with payload: {msg.payload}')
+    print(f'Received data from sensor on topic: {msg.topic} with payload: {str(msg.payload)}')
+    measure_instance = Measure.objects.create(value={str(msg.payload)},measurement_date='2001-12-25',sensor_id=1)
 
 client = mqtt.Client()
 client.on_connect = on_connect

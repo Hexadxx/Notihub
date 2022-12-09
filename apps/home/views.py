@@ -13,9 +13,6 @@ import json
 
 from django.http import JsonResponse
 
-from apps.home.mqtt import client as mqtt_client
-
-
 @login_required(login_url="/login/")
 def index(request):
     context = {'segment': 'index'}

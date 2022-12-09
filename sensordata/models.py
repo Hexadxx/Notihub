@@ -18,9 +18,9 @@ class Sensor(models.Model):
 
 class Measure(models.Model):
     sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE, blank=True)
-    value = models.CharField(max_length=300)
+    value = models.CharField(max_length=300, blank=True)
     measurement_date = models.DateField()
     
     def __str__(self):		# new
-        return self.name	# new    
+        return self.value	# new    
         
