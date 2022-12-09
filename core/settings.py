@@ -27,8 +27,8 @@ DEBUG = env('DEBUG')
 ASSETS_ROOT = os.getenv('ASSETS_ROOT', '/static/assets') 
 
 # load production server from .env
-ALLOWED_HOSTS        = ['localhost', 'localhost:85', '127.0.0.1',               env('SERVER', default='127.0.0.1') ]
-CSRF_TRUSTED_ORIGINS = ['http://localhost:85', 'http://127.0.0.1', 'https://' + env('SERVER', default='127.0.0.1') ]
+ALLOWED_HOSTS        = ['159.223.6.137', 'localhost',               env('SERVER', default='159.223.6.137') ]
+CSRF_TRUSTED_ORIGINS = ['http://159.223.6.137', 'http://localhost', 'https://' + env('SERVER', default='159.223.6.137') ]
 
 # Application definition
 
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'apps.dyn_datatables',
+    'sensordata',
 ]
 
 MIDDLEWARE = [
@@ -206,3 +207,10 @@ DYNAMIC_DATATB = {
     # Register models below
     'books': "Book",     
 }
+
+
+MQTT_SERVER = 'localhost'
+MQTT_PORT = 1883
+MQTT_KEEPALIVE = 60
+MQTT_USER = 'notihub'
+MQTT_PASSWORD = 'etH9a4zFSypM'
