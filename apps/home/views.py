@@ -9,6 +9,12 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 
+import json
+
+from django.http import JsonResponse
+
+from apps.home.mqtt import client as mqtt_client
+
 
 @login_required(login_url="/login/")
 def index(request):
@@ -42,3 +48,8 @@ def pages(request):
     except:
         html_template = loader.get_template('home/page-500.html')
         return HttpResponse(html_template.render(context, request))
+
+def publish_message(request):
+    request_data = json.loads(request.body)
+    rc, mid = mqtt_client.publish(request_data['topic'], request_data['msg'])
+    return JsonResponse({'code': rc})
