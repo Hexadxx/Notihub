@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Measures</title>
 </head>
 <body>
+
   {% extends 'layouts/base.html' %}
+  
+  {% block title %} Measure {% endblock title %}
+
+{% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
-<h1>Measure</h1>
-<ul>
+<h1>Measures</h1>
+<ul class="list-group">
 {% for measure in measure_list %}
-  <li>{{ measure}}</li>
+  <li class="list-group-item">
+    {{ measure.value}}<br>
+    {{ measure.measurement_date}}
+  </li>
 {% endfor %}
 </ul>
 
