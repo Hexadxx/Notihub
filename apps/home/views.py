@@ -8,6 +8,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
+from sensordata.models import Measure
+from django.shortcuts import render
 
 import json
 
@@ -50,3 +52,12 @@ def publish_message(request):
     request_data = json.loads(request.body)
     rc, mid = mqtt_client.publish(request_data['topic'], request_data['msg'])
     return JsonResponse({'code': rc})
+
+
+def all_measure(request):
+    measure_list = Measure.objects.all()
+    return render(request, 'home/measure_list.html',
+    {'measure_list' : measure_list})
+
+
+    
