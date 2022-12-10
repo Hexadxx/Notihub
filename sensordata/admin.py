@@ -3,4 +3,8 @@ from . import models
 
 admin.site.register(models.Sensor)
 admin.site.register(models.SensorType)
-admin.site.register(models.Measure)
+
+class MeasureAdmin(admin.ModelAdmin):
+    readonly_fields = ('measurement_date',)
+
+admin.site.register(models.Measure, MeasureAdmin)
