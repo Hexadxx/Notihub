@@ -8,13 +8,16 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
+from sensordata.models import Measure
+from django.shortcuts import render
+
+from django.shortcuts import render
+from django.db.models import Sum
+from django.http import JsonResponse
 
 import json
 
 from django.http import JsonResponse
-
-from apps.home.mqtt import client as mqtt_client
-
 
 @login_required(login_url="/login/")
 def index(request):
@@ -53,3 +56,21 @@ def publish_message(request):
     request_data = json.loads(request.body)
     rc, mid = mqtt_client.publish(request_data['topic'], request_data['msg'])
     return JsonResponse({'code': rc})
+
+
+def all_measure(request):
+    measure_list = Measure.objects.all()
+    return render(request, 'home/measure_list.html',
+    {'measure_list' : measure_list})
+
+def update_all_measure(self):
+    obj = Measure.objects.create(val=1)
+    Measure.objects.filter(pk=obj.pk).update(val=F('val') + 1)
+    # At this point obj.val is still 1, but the value in the database
+    # was updated to 2. The object's updated value needs to be reloaded
+    # from the database.
+    obj.refresh_from_db()
+    self.assertEqual(obj.val, 2)
+    
+
+
