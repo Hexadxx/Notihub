@@ -12,9 +12,9 @@
 
 
 ## Settings instructions
-The server is hosted on an instance in the DigitalOcean cloud. 
+The server is hosted on an instance in DigitalOcean cloud. 
 
-We followed this tutorial for the initial setup of our server: [Initial Server Setup with Debian 11](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-debian-11)
+Follow this tutorial for the initial setup of our server: [Initial Server Setup with Debian 11](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-debian-11)
 
 
 ## Guide for setting up the dashboard
@@ -38,7 +38,7 @@ We followed this tutorial for the initial setup of our server: [Initial Server S
 2. Search for Mosquitto MQTT broker
     >sudo apt search mosquitto
 3. Install the following Mosquitto package
->sudo apt install mosquitto mosquitto-clients
+    >sudo apt install mosquitto mosquitto-clients
 4. After the installation, check if the Mosquitto service is working
     >sudo systemctl is-enabled mosquitto
 
@@ -68,7 +68,7 @@ You should have someting like this
     `MQTT_USER = 'username'`
 
     `MQTT_PASSWORD = 'thisIsAVerySecuredPassword'`
-5. Setup the firewall to accept MQQT requests that use the port 1883 by default
+5. Setup the firewall to accept MQTT requests that use the port 1883 by default
     >sudo ufw allow 1883
 
     Check it with the following command:
@@ -79,11 +79,12 @@ You should have someting like this
     
     | To | Action | From |
     | ----------- | ----------- | ----------- |
-    |8000 (v6) | ALLOW      | Anywhere (v6) 
-
-    
+    |`8000 (v6)` | `ALLOW`      | `Anywhere (v6)` 
 
 6. For the change to apply you need to restart the MQQT broker service
+
+## Guide for setting up the Django database
+
 
 ## Version used
 
@@ -99,5 +100,6 @@ You should have someting like this
 
 ### Notihub © Made with ❤️ by Eetu and Sébastien | December 2022 | Haaga-Helia
 
-![Logo Notihub](./docs/Logo_Notihub.png)
+![Logo Notihub](./docs/Notihub_logo.png)
+![Logo Haaga-Helia](./docs/HH_logo.png)
  
