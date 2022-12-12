@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Measures</title>
+</head>
+<body>
+
+  {% extends 'layouts/base.html' %}
+  
+  {% block title %} Measure {% endblock title %}
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<h3> Your email has been sent! </h3>
+
+{% endblock %}
+
+
+<script
+  src="https://code.jquery.com/jquery-3.6.1.js"
+  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous"></script>
+
+  <script>
+$(document).ready(function()){
+
+  setInterval(function()
+  {
+    $.ajax({
+      type: 'GET',
+      url : "{% url 'getMeasure' %}",
+      success: function(response){
+        console.log(response);
+
+      },
+      error: function(response){
+        alert("No measure found");
+      }
+    })
+
+  },1000)
+}
+  </script
+
+</body>
+</html>
+
