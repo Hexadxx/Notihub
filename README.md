@@ -100,6 +100,6 @@ You should have someting like this
 
 ### Notihub © Made with ❤️ by Eetu and Sébastien | December 2022 | Haaga-Helia
 
-![Logo Notihub](./docs/Notihub_logo.png)
-![Logo Haaga-Helia](./docs/HH_logo.png)
+![Logo Notihub](./docs/Notihub_logo.png "Notihub logo")
+![Logo Haaga-Helia](./docs/HH_logo.png "Haaga-Helia logo")
  
