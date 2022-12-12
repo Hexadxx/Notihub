@@ -17,6 +17,7 @@ class Sensor(models.Model):
         return self.name	# new
 
 class Measure(models.Model):
+    measureId = models.AutoField(primary_key=True)
     sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE, blank=True)
     value = models.CharField(max_length=300, blank=True)
     measurement_date = models.DateTimeField(auto_now_add=True)

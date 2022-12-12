@@ -63,14 +63,8 @@ def all_measure(request):
     return render(request, 'home/measure_list.html',
     {'measure_list' : measure_list})
 
-def update_all_measure(self):
-    obj = Measure.objects.create(val=1)
-    Measure.objects.filter(pk=obj.pk).update(val=F('val') + 1)
-    # At this point obj.val is still 1, but the value in the database
-    # was updated to 2. The object's updated value needs to be reloaded
-    # from the database.
-    obj.refresh_from_db()
-    self.assertEqual(obj.val, 2)
-    
+def getMeasure(request):
+    queryset = Measure.objects.all()[:20]
+    return JsonResponse({"measure":list(queryset-vales())})
 
 

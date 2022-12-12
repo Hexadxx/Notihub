@@ -16,17 +16,57 @@
 
 {% block content %}
 <h1>Measures</h1>
-<ul class="list-group">
-{% for measure in measure_list %}
-  <li class="list-group-item">
-    {{ measure.value}}<br>
-    {{ measure.measurement_date}}
-  </li>
-{% endfor %}
-</ul>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Value</th>
+      <th scope="col">Date</th>
+      <th scope="col">Sensor</th>
+    </tr>
+  </thead>
+  <tbody id="views">
+  
+  {% for measure in measure_list %}
+    <tr>
+    <th scope="row">{{ measure.measureId}} </th>
+    <td > {{ measure.value}}<br> </td>
+    <td > {{ measure.measurement_date}} </td>
+    <td > {{ measure.sensor}} </td>
+  </tr>
+  {% endfor %}
+    </tbody>
+</table>
 
 {% endblock %}
-    
+
+
+<script
+  src="https://code.jquery.com/jquery-3.6.1.js"
+  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous"></script>
+
+  <script>
+$(document).ready(function()){
+
+  setInterval(function()
+  {
+    $.ajax({
+      type: 'GET',
+      url : "{% url 'getMeasure' %}",
+      success: function(response){
+        console.log(response);
+
+      },
+      error: function(response){
+        alert("No measure found");
+      }
+    })
+
+  },1000)
+}
+  </script
+
 </body>
 </html>
 
