@@ -29,6 +29,8 @@ apps/static/assets/node_modules
 apps/static/assets/yarn.lock
 apps/static/assets/.temp
 
+aaps/core/settings.py
+
 .env
 .env__
 .idea/

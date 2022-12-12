@@ -215,3 +215,11 @@ MQTT_PORT = 1883
 MQTT_KEEPALIVE = 60
 MQTT_USER = 'notihub'
 MQTT_PASSWORD = 'etH9a4zFSypM'
+
+
+EMAIL__HOST = 'smtp.outlook.com'
+EMAIL_PORT = 58
+EMAIL_HOST_USER = "theswissbell@outlook.com"
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False

@@ -13,6 +13,7 @@ urlpatterns = [
     path('', views.index, name='home'),
     path('measure', views.all_measure, name="list-measure"),
     path('ajax/getMeasure', views.getMeasure,name="getMeasure"),
+    path('email', views.sendEmail, name="email-sent"),
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),
 

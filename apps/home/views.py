@@ -14,6 +14,7 @@ from django.shortcuts import render
 from django.shortcuts import render
 from django.db.models import Sum
 from django.http import JsonResponse
+from django.core.mail import send_mail
 
 import json
 
@@ -67,4 +68,9 @@ def getMeasure(request):
     queryset = Measure.objects.all()[:20]
     return JsonResponse({"measure":list(queryset-vales())})
 
-
+def sendEmail(request):
+    send_mail('Notification from Notihub',
+              'Hello you just got a new notification: The sound sensor detected a loud sound!',
+              'no-reply@notihub.fi',
+              ['sebastien.campana@myy.haaga-helia.fi'])
+    return render (request, 'email/sent.html')
