@@ -28,8 +28,7 @@ staticfiles/*
 apps/static/assets/node_modules
 apps/static/assets/yarn.lock
 apps/static/assets/.temp
-
-aaps/core/settings.py
+apps/core/settings.py
 
 .env
 .env__
