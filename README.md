@@ -1,5 +1,6 @@
 # Notihub
 
+
 ## Technologies used
 
 - Debian 11
@@ -8,6 +9,8 @@
 - Django
 - MQTT
 
+**Sensors**
+For the sensors/hardware part you can have information [here](https://notihub5.wordpress.com/) made by group 5.
 
 
 
